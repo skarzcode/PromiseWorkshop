@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 2 | Promise practice</title>
+  </head>
+  <body>
+    <h1>Open the console</h1>
+    <script>
+
+function wait(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
+  
+
+      function fetchUrl(url) {
+        return wait(1000).then(() => secondFetch(url));
+      }
+
+
+      function secondFetch(url){
+      fetch (url)
+      .then((res) => res.json())
+      .then((data) =>  fetch(data.shape.url))
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      }
+
+
+
+
+      fetch ("https://pokeapi.co/api/v2/pokemon/pikachu")
+      .then((res) => res.json())
+      .then((data) => (data.species.url))
+      .then((url) => secondFetch(url))
+    
+
+   
+
+
+      
+      
+      
+      
+      
+      
+
+      
+      
+      
+
+      // fetch(firstRes)
+      // .then((res) => res.json())
+      // .then((data) => (console.log(data)));
+     
+    
+    </script>
+  </body>
+</html>
