@@ -31,13 +31,16 @@ function wait(ms) {
 
 
 
-      fetch ("https://pokeapi.co/api/v2/pokemon/pikachu")
-      .then((res) => res.json())
-      .then((data) => (data.species.url))
-      .then((url) => secondFetch(url))
+      // fetch ("https://pokeapi.co/api/v2/pokemon/pikachu")
+      // .then((res) => res.json())
+      // .then((data) => (data.species.url))
+      // .then((url) => secondFetch(url))
     
 
-  
+      fetch("https://api.spoonacular.com/recipes/")
+      .then((res) => res.json())
+      .then((data) => (console.log(data)))
+      .catch((error) => console.log(error))
 
       
       
